@@ -1,0 +1,40 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--dark-grey-2);
+
+  &._at-top {
+    z-index: auto;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    height: 120px;
+
+    @media #{$max-desktop-M} {
+      height: 80px;
+    }
+
+    @media #{$horizontal-mobile}, #{$max-mobile-L} {
+      height: 40px;
+    }
+  }
+
+  &__burger {
+    position: relative;
+    z-index: 5;
+    margin-left: -8px;
+
+    @media #{$max-desktop-M} {
+      margin-left: -4px;
+    }
+
+    @media #{$horizontal-mobile}, #{$max-mobile-L} {
+      margin-left: -6px;
+    }
+  }
+}

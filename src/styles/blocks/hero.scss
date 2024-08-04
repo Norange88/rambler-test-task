@@ -1,0 +1,716 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__illustrations {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100svh;
+  }
+
+  &__title {
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    max-width: 1920px;
+    bottom: calc(30% + 250px);
+    transform: translateX(-50%) rotate(var(--diagonal-angle));
+
+    @media (orientation: portrait) {
+      transform: translateX(-50%) rotate(-45deg);
+    }
+
+    @media #{$low-screen} {
+      bottom: calc(26% + 250px);
+    }
+
+    @media #{$max-desktop-M} {
+      bottom: calc(26% + 250px);
+    }
+
+    @media #{$max-tablet-landscape} {
+      bottom: calc(20% + 250px);
+    }
+
+    @media #{$max-tablet-landscape} and (min-aspect-ratio: 1.6) {
+      bottom: calc(18% + 250px);
+    }
+
+    @media #{$max-tablet-portrait} {
+      width: 116%;
+      max-width: 90svh;
+      bottom: 42%;
+    }
+
+    @media #{$horizontal-mobile} {
+      max-width: 120svh;
+    }
+  }
+
+  &__title-word {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+
+    &._bit {
+      justify-content: flex-end;
+      left: 5.3%;
+      width: 36%;
+      transform: translateY(-13%);
+
+      @media #{$max-tablet-portrait} {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    &._block {
+      justify-content: flex-start;
+      left: 31%;
+      width: 66.66%;
+      transform: translateY(117%);
+
+      @media #{$max-tablet-portrait} {
+        left: 10%;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 20svh;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    pointer-events: auto;
+
+    @media #{$max-desktop-M} {
+      padding-bottom: 30px;
+    }
+
+    @media #{$max-tablet-portrait} {
+      position: relative;
+      margin-top: 32px;
+    }
+
+    @media #{$max-mobile-L} {
+      align-items: flex-start;
+      width: auto;
+      padding-bottom: 24px;
+    }
+  }
+
+  &__action-text {
+    margin-bottom: 75px;
+    text-align: center;
+    @include font-secondary;
+    font-size: 48px;
+    color: #adaeae;
+
+    @media #{$low-screen} {
+      margin-bottom: 40px;
+    }
+
+    @media #{$max-desktop-M} {
+      margin-bottom: 40px;
+    }
+
+    @media #{$max-tablet-landscape} {
+      font-size: 40px;
+    }
+
+    @media #{$max-tablet-portrait} {
+      font-size: 32px;
+    }
+
+    @media #{$max-mobile-M} {
+      margin-bottom: 28px;
+      font-size: 16px;
+    }
+  }
+
+  &__nav {
+    width: 91%;
+
+    @media #{$max-tablet-landscape} {
+      width: 80%;
+    }
+
+    @media #{$max-tablet-portrait} {
+      width: 90%;
+    }
+
+    @media #{$max-mobile-L} {
+      width: 100%;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-family: var(--font-secondary);
+    font-size: 27px;
+    line-height: 1.66;
+    color: var(--dark-grey-1);
+
+    @media #{$max-tablet-landscape} {
+      font-size: 24px;
+    }
+
+    @media #{$max-tablet-portrait} {
+      font-size: 20px;
+    }
+
+    @media #{$max-mobile-L} {
+      flex-direction: column;
+      justify-content: flex-start;
+      font-size: 32px;
+    }
+
+    @media #{$max-mobile-M} {
+      row-gap: 24px;
+      font-size: 18px;
+    }
+  }
+
+  &__nav-link {
+    position: relative;
+    cursor: pointer;
+
+    @include hover {
+      &::after {
+        transform: translateY(4px);
+      }
+    }
+
+    &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 110%;
+      width: 100%;
+      height: 2px;
+      background-color: var(--dark-grey-1);
+      transition: all $transition;
+    }
+  }
+
+  &__figure {
+    position: absolute;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  &__figure-face {
+    position: relative;
+
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      // top: 0;
+      // left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    img {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__figure-shadow {
+    position: absolute;
+    width: 100%;
+
+    // display: none;
+  }
+
+  &__figure._1 {
+    left: 1%;
+    bottom: 1%;
+
+    @media #{$max-desktop-M} {
+      left: -6%;
+    }
+
+    @media #{$max-tablet-portrait} {
+      bottom: 2%;
+      left: 37%;
+    }
+
+    @media #{$max-mobile-L} {
+      bottom: 70px;
+      left: 37%;
+    }
+
+    @media #{$horizontal-mobile} {
+      bottom: 40%;
+    }
+
+    .hero__figure-face {
+      transform: rotate(90deg);
+
+      @media #{$max-tablet-portrait} {
+        transform: rotate(-120deg);
+      }
+
+      @media #{$max-mobile-L} {
+        transform: rotate(0deg);
+      }
+
+      img {
+        // width: 290px;
+        max-width: 15vw;
+        max-height: 24.2svh;
+        // filter: drop-shadow(
+        //   min(110px, 9vmin) min(83px, 7vmin) 15px rgba(0, 0, 0, 0.3)
+        // );
+
+        @media #{$max-tablet-portrait} {
+          // width: 65px;
+          max-width: 20.3vw;
+          max-height: 13.5svh;
+          // filter: drop-shadow(-91px 107px 18px rgba(0, 0, 0, 0.3));
+        }
+      }
+
+      &::before {
+        top: 26%;
+        left: 35%;
+        width: 110%;
+        height: 110%;
+        background-image: url('../images/tetris/shadows/l-blur-2.png');
+
+        @media #{$max-tablet-portrait} {
+          top: 126%;
+          left: -169%;
+          width: 170%;
+          height: 170%;
+          background-image: url('../images/tetris/shadows/l-blur-max.png');
+        }
+      }
+    }
+  }
+
+  &__figure._2 {
+    left: -4%;
+    bottom: 29%;
+
+    @media #{$min-desktop-XL} {
+      left: 5%;
+    }
+
+    @media #{$low-screen} {
+      left: 5%;
+    }
+
+    @media #{$max-desktop-M} {
+      left: -4%;
+      bottom: 36%;
+    }
+
+    @media #{$max-tablet-portrait} {
+      left: 12%;
+      bottom: 28%;
+    }
+
+    @media #{$max-mobile-L} {
+      left: 12%;
+      bottom: 36%;
+    }
+
+    .hero__figure-face {
+      transform: rotate(-30deg);
+
+      @media #{$max-tablet-portrait} {
+        transform: rotate(192deg);
+      }
+
+      img {
+        // width: 325px;
+        max-width: 16.87vw;
+        max-height: 27.2svh;
+        // filter: drop-shadow(
+        //   max(-122px, -9vmin) min(31px, 3vmin) 15px rgba(0, 0, 0, 0.3)
+        // );
+
+        @media #{$max-tablet-portrait} {
+          // width: 74px;
+          max-width: 23.1vw;
+          max-height: 15.42svh;
+          // filter: drop-shadow(74px -126px 13px rgba(0, 0, 0, 0.3));
+        }
+      }
+
+      &::before {
+        top: 15%;
+        right: 40%;
+        background-image: url('../images/tetris/shadows/t.png');
+
+        @media #{$max-tablet-portrait} {
+          top: -210%;
+          left: 52%;
+          right: auto;
+          width: 190%;
+          height: 190%;
+          background-image: url('../images/tetris/shadows/t-blur-max.png');
+        }
+      }
+    }
+  }
+
+  &__figure._3 {
+    left: 17.5%;
+    // top: calc(20% - 170px);
+    top: 68px;
+
+    @media #{$max-desktop-M} {
+      left: calc(50lvh - 15%);
+      top: 40px;
+    }
+
+    @media #{$max-tablet-landscape} {
+      left: calc(15%);
+    }
+
+    @media #{$max-tablet-portrait} {
+      top: auto;
+      left: auto;
+      right: 13%;
+      bottom: 3.88%;
+    }
+
+    .hero__figure-face {
+      transform: scaleX(-1) rotate(65deg);
+
+      @media #{$max-tablet-portrait} {
+        transform: scaleX(-1) rotate(-24deg);
+      }
+
+      img {
+        // width: 470px;
+        max-width: 24.48vw;
+        max-height: 39.5svh;
+        // filter: drop-shadow(
+        //   min(60px, 5vmin) min(52px, 4vmin) 15px rgba(0, 0, 0, 0.2)
+        // );
+
+        @media #{$max-tablet-portrait} {
+          // width: 106px;
+          max-width: 33.1vw;
+          max-height: 22svh;
+          // filter: drop-shadow(-76px 81px 20px rgba(0, 0, 0, 0.15));
+        }
+      }
+
+      &::before {
+        top: 17%;
+        left: 20%;
+        background-image: url('../images/tetris/shadows/z-blur-2.png');
+
+        @media #{$max-tablet-portrait} {
+          top: 68%;
+          left: -93%;
+          width: 150%;
+          height: 150%;
+          background-image: url('../images/tetris/shadows/z-blur-max.png');
+        }
+      }
+    }
+  }
+
+  &__figure._4 {
+    left: calc(50% + -112px);
+    // top: 27.5%;
+    top: calc(36% - 100px);
+
+    @media #{$max-tablet-portrait} {
+      top: auto;
+      left: auto;
+      bottom: 26%;
+      right: 19%;
+    }
+
+    .hero__figure-face {
+      transform: scaleX(-1) rotate(198deg);
+
+      @media #{$max-tablet-portrait} {
+        transform: scaleX(-1) rotate(-71deg);
+      }
+
+      img {
+        // width: 205px;
+        max-width: 10.62vw;
+        max-height: 17.16svh;
+        // filter: drop-shadow(5px -5px 2px rgba(0, 0, 0, 0.25));
+
+        @media #{$max-tablet-portrait} {
+          // width: 46px;
+          max-width: 14.3vw;
+          max-height: 9.6svh;
+          // filter: drop-shadow(-10px -9px 2px rgba(0, 0, 0, 0.3));
+        }
+      }
+
+      &::before {
+        top: -8%;
+        left: -2%;
+        width: 110%;
+        height: 110%;
+        background-image: url('../images/tetris/shadows/l.png');
+
+        @media #{$max-tablet-portrait} {
+          top: -21%;
+          left: -24%;
+        }
+      }
+    }
+  }
+
+  &__figure._5 {
+    left: 61%;
+    top: 19%;
+
+    @media #{$max-tablet-portrait} {
+      left: 10%;
+      top: 31%;
+    }
+
+    .hero__figure-face {
+      transform: rotate(-49deg);
+
+      @media #{$max-tablet-portrait} {
+        transform: rotate(43deg);
+      }
+
+      img {
+        // width: 158px;
+        max-width: 8.23vw;
+        max-height: 13.28svh;
+        // filter: drop-shadow(4px 9px 2px rgba(0, 0, 0, 0.25));
+
+        @media #{$max-tablet-portrait} {
+          // width: 36px;
+          max-width: 11.25vw;
+          max-height: 7.5svh;
+          // filter: drop-shadow(13px -5px 2px rgba(0, 0, 0, 0.3));
+        }
+      }
+
+      &::before {
+        top: 5%;
+        left: 4%;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/tetris/shadows/z-blur-1.png');
+
+        @media #{$max-tablet-portrait} {
+          top: -6%;
+          left: 31%;
+        }
+      }
+    }
+  }
+
+  &__figure._6 {
+    left: 64%;
+    // bottom: 17%;
+    bottom: calc(5% + 140px);
+
+    @media #{$max-desktop-M} {
+      left: 60%;
+    }
+
+    @media #{$max-tablet-portrait} {
+      left: 13%;
+      top: 45%;
+      bottom: auto;
+    }
+
+    .hero__figure-face {
+      transform: rotate(-30deg);
+
+      @media #{$max-tablet-portrait} {
+        transform: rotate(63deg);
+      }
+
+      img {
+        // width: 221px;
+        max-width: 11.51vw;
+        max-height: 18.58svh;
+        // filter: drop-shadow(
+        //   min(58px, 4vmin) min(38px, 3vmin) 3px rgba(0, 0, 0, 0.2)
+        // );
+
+        @media #{$max-tablet-portrait} {
+          // width: 50px;
+          max-width: 15.6vw;
+          max-height: 10.42svh;
+          // filter: drop-shadow(35px -56px 3px rgba(0, 0, 0, 0.25));
+        }
+      }
+
+      &::before {
+        top: 17%;
+        left: 22%;
+        background-image: url('../images/tetris/shadows/z-blur-1.png');
+
+        @media #{$max-tablet-portrait} {
+          top: -112%;
+          left: 66%;
+          background-image: url('../images/tetris/shadows/z-blur-2.png');
+        }
+      }
+    }
+  }
+
+  &__figure._7 {
+    right: 6%;
+    bottom: 24%;
+
+    @media #{$low-screen} {
+      right: 12%;
+    }
+
+    @media #{$max-tablet-portrait} {
+      top: 12%;
+      right: 32%;
+      bottom: auto;
+    }
+
+    @media #{$max-mobile-L} {
+      // top: 16%;
+      top: 92px;
+      right: 26%;
+    }
+
+    @media #{$horizontal-mobile} {
+      right: 10%;
+    }
+
+    .hero__figure-face {
+      transform: rotate(59deg);
+
+      @media #{$max-tablet-portrait} {
+        transform: rotate(-30deg);
+      }
+
+      img {
+        // width: 350px;
+        max-width: 18.23vw;
+        max-height: 29.43svh;
+        // filter: drop-shadow(
+        //   min(112px, 10vmin) min(38px, 3vmin) 15px rgba(0, 0, 0, 0.2)
+        // );
+
+        @media #{$max-tablet-portrait} {
+          // width: 80px;
+          max-width: 25vw;
+          max-height: 16.66svh;
+          // filter: drop-shadow(-23px 105px 12px rgba(0, 0, 0, 0.25));
+        }
+      }
+
+      &::before {
+        top: 12%;
+        left: 25%;
+        width: 110%;
+        height: 110%;
+        background-image: url('../images/tetris/shadows/l-blur-2.png');
+
+        @media #{$max-tablet-portrait} {
+          top: 80%;
+          left: -77%;
+          width: 190%;
+          height: 190%;
+          background-image: url('../images/tetris/shadows/z-blur-max.png');
+        }
+      }
+    }
+  }
+
+  &__figure._8 {
+    right: -1.5%;
+    bottom: 19%;
+
+    @media #{$max-desktop-M} {
+      right: -6%;
+    }
+
+    @media #{$max-tablet-portrait} {
+      right: auto;
+      bottom: auto;
+      top: 20%;
+      left: 14%;
+    }
+
+    @media #{$horizontal-mobile} {
+      left: 25%;
+      right: auto;
+    }
+
+    .hero__figure-face {
+      transform: scaleX(-1) rotate(-12deg);
+
+      @media #{$max-tablet-portrait} {
+        transform: scaleX(-1) rotate(79deg);
+      }
+
+      img {
+        // width: 476px;
+        max-width: 24.8vw;
+        max-height: 40.03svh;
+        // filter: drop-shadow(
+        //   max(-56px, -5vmin) min(96px, 8vmin) 15px rgba(0, 0, 0, 0.1)
+        // );
+
+        @media #{$max-tablet-portrait} {
+          // width: 108px;
+          max-width: 33.75vw;
+          max-height: 22.5svh;
+          // filter: drop-shadow(81px 50px 23px rgba(0, 0, 0, 0.25));
+        }
+      }
+
+      &::before {
+        right: 15%;
+        width: 110%;
+        height: 110%;
+        background-image: url('../images/tetris/shadows/l-blur-2.png');
+
+        @media #{$max-tablet-portrait} {
+          top: 2%;
+          right: -122%;
+          width: 190%;
+          height: 190%;
+          background-image: url('../images/tetris/shadows/z-blur-max.png');
+        }
+      }
+    }
+  }
+}

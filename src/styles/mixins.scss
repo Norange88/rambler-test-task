@@ -1,0 +1,98 @@
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+@mixin font-face(
+  $name,
+  $path,
+  $weight: null,
+  $style: null,
+  $exts: eot woff2 woff ttf svg
+) {
+  $src: null;
+
+  $extmods: (
+    eot: '?iefix',
+    svg: '#' + str-replace($name, ' ', '_'),
+  );
+
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype',
+  );
+
+  @each $ext in $exts {
+    $extmod: if(
+      map-has-key($extmods, $ext),
+      $ext + map-get($extmods, $ext),
+      $ext
+    );
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append(
+      $src,
+      url(quote($path + '.' + $extmod)) format(quote($format)),
+      comma
+    );
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+@mixin font-secondary {
+  font-family: var(--font-secondary);
+  line-height: 0.56;
+  letter-spacing: -0.06em;
+}
+
+@mixin section-title {
+  font-family: var(--font-secondary);
+  font-size: 128px;
+  line-height: 0.53;
+  letter-spacing: -0.06em;
+
+  @media #{$max-tablet-landscape} {
+    font-size: 80px;
+  }
+
+  @media #{$max-mobile-L} {
+    font-size: 64px;
+  }
+
+  @media #{$max-mobile-M} {
+    font-size: 48px;
+  }
+}
+
+@mixin checkers($direction, $size, $color1, $color2) {
+  background-image: repeating-linear-gradient(
+    $direction,
+    $color1 $size,
+    $color1 calc($size * 2),
+    $color2 calc($size * 2),
+    $color2 calc($size * 3)
+  );
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.container-wide {
+  width: calc(100% - 84px);
+  max-width: calc(1920px - 84px);
+  margin-left: auto;
+  margin-right: auto;
+
+  @media #{$max-tablet-landscape} {
+    width: calc(100% - 48px);
+  }
+
+  @media #{$max-mobile-L} {
+    width: calc(100% - 32px);
+  }
+}
+
+.container {
+  width: 1572px;
+  max-width: calc(100% - 128px);
+  margin-left: auto;
+  margin-right: auto;
+
+  @media #{$max-mobile-L} {
+    max-width: calc(100% - 48px);
+  }
+}

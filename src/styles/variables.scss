@@ -1,0 +1,27 @@
+html {
+  --grey-1: #eaf0ee;
+  --grey-2: #858f8d;
+  --dark-grey-1: #292929;
+  --dark-grey-2: #333333;
+  --white: #fff;
+  --pink: #ff5599;
+  --teal: #5fd3bc;
+}
+
+$transition: 0.3s ease;
+
+$desktop-M: 1600px;
+$desktop-XL: 1920px;
+$tablet-landscape: 1280px;
+$tablet-portrait: 1024px;
+$mobile-L: 768px;
+$mobile-M: 540px;
+
+$min-desktop-XL: '(min-width: #{$desktop-XL + 1px})';
+$max-desktop-M: '(max-width: #{$desktop-M - 1px})';
+$max-tablet-landscape: '(max-width: #{$tablet-landscape - 1px})';
+$max-tablet-portrait: '(max-width: #{$tablet-portrait - 1px})';
+$max-mobile-L: '(max-width: #{$mobile-L - 1px})';
+$max-mobile-M: '(max-width: #{$mobile-M - 1px})';
+$low-screen: '(min-aspect-ratio: 2.2)';
+$horizontal-mobile: '#{$max-tablet-portrait} and (min-aspect-ratio: 1.9), #{$max-mobile-L} and (orientation: landscape)';

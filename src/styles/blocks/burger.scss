@@ -1,0 +1,106 @@
+.burger {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transition: transform $transition;
+
+  @media #{$max-desktop-M} {
+    width: 60px;
+    height: 60px;
+  }
+
+  @media #{$horizontal-mobile}, #{$max-mobile-L} {
+    width: 40px;
+    height: 40px;
+  }
+
+  span {
+    position: absolute;
+    display: block;
+    left: calc(50% - 33px);
+    top: calc(50% - 3px);
+    width: 66px;
+    height: 7px;
+    background-color: var(--white);
+    will-change: transform;
+
+    @media #{$max-desktop-M} {
+      left: calc(50% - 24px);
+      top: calc(50% - 2px);
+      width: 48px;
+      height: 4px;
+    }
+
+    @media #{$horizontal-mobile}, #{$max-mobile-L} {
+      left: calc(50% - 14px);
+      top: calc(50% - 2px);
+      width: 28px;
+      height: 5px;
+    }
+  }
+
+  span:nth-child(1) {
+    transform: translateY(calc(-100% - 9px));
+    transition: transform 0.6s ease 0.6s, box-shadow $transition;
+
+    @media #{$max-desktop-M} {
+      transform: translateY(calc(-100% - 6px));
+    }
+  }
+
+  span:nth-child(2) {
+    transition: transform 0.6s ease 0.5s, box-shadow $transition;
+  }
+
+  span:nth-child(3) {
+    transform: translateY(calc(100% + 9px));
+    transition: transform 0.6s ease 0.4s, box-shadow $transition;
+
+    @media #{$max-desktop-M} {
+      transform: translateY(calc(100% + 6px));
+    }
+  }
+
+  span:nth-child(4) {
+    transform: rotate(45deg) scaleX(0);
+    transition: transform 0.3s ease, box-shadow $transition;
+  }
+
+  span:nth-child(5) {
+    transform: rotate(-45deg) scaleX(0);
+    transition: transform 0.3s ease, box-shadow $transition;
+  }
+}
+
+.burger {
+  @include hover {
+    transform: scale(1.1);
+  }
+}
+
+.burger._opened {
+  span:nth-child(1) {
+    transform: translateY(-200px);
+    transition: transform 0.6s ease, box-shadow $transition;
+  }
+
+  span:nth-child(2) {
+    transform: translateY(-200px);
+    transition: transform 0.6s ease 0.1s, box-shadow $transition;
+  }
+
+  span:nth-child(3) {
+    transform: translateY(-200px);
+    transition: transform 0.6s ease 0.2s, box-shadow $transition;
+  }
+
+  span:nth-child(4) {
+    transform: rotate(45deg) scaleX(1);
+    transition: transform 0.3s ease 0.7s, box-shadow $transition;
+  }
+
+  span:nth-child(5) {
+    transform: rotate(-45deg) scaleX(1);
+    transition: transform 0.3s ease 0.7s, box-shadow $transition;
+  }
+}
