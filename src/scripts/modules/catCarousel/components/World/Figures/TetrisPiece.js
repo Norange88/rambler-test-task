@@ -63,7 +63,6 @@ export default class TetrisPiece {
     }
     const position = this.path.instance.getPointAt(figureProgress);
     this.instance.position.copy(position);
-    console.log(this.posCorrectionY);
     this.instance.position.y += this.posCorrectionY;
   }
 

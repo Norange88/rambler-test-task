@@ -2,7 +2,9 @@
 @import './reset';
 @import './fonts';
 @import './variables';
+@import './animations';
 
+@import './blocks/emerging-text';
 @import './blocks/container';
 @import './blocks/burger';
 @import './blocks/header';
@@ -23,4 +25,12 @@ body {
   line-height: 1.6;
   background-color: var(--grey-1);
   touch-action: pan-x pan-y;
+}
+
+body.loading {
+  opacity: 0;
+}
+
+body.noscroll {
+  overflow: hidden;
 }

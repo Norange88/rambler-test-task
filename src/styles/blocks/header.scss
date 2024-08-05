@@ -5,6 +5,8 @@
   left: 0;
   width: 100%;
   background-color: var(--dark-grey-2);
+  opacity: 0;
+  animation: bounceInDown 1s forwards ease-out;
 
   &._at-top {
     z-index: auto;
@@ -36,5 +38,12 @@
     @media #{$horizontal-mobile}, #{$max-mobile-L} {
       margin-left: -6px;
     }
+  }
+}
+
+body.loading {
+  .header {
+    // opacity: 0;
+    animation: none;
   }
 }

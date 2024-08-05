@@ -16,9 +16,9 @@ export default class Renderer {
   setInstance() {
     this.instance = new THREE.WebGLRenderer({
       canvas: this.canvas,
-      antialias: true,
+      // antialias: true, <-- heavy ios lag
     });
-    // this.instance.useLegacyLights = false;
+
     this.instance.outputColorSpace = THREE.LinearSRGBColorSpace;
     this.instance.shadowMap.enabled = true;
     this.instance.shadowMap.type = THREE.PCFSoftShadowMap;

@@ -9,7 +9,6 @@ export default class CatCarousel {
   constructor() {
     this.section = document.getElementById('cat-tetris-section');
     this.canvas = document.getElementById('cat-tetris-canvas');
-
     this.experience = new Experience(this.canvas, this.section);
 
     this.initScrollTrigger();
@@ -23,7 +22,14 @@ export default class CatCarousel {
       scrub: true,
       pin: false,
       onUpdate: (self) => {
-        this.experience.updateProgress(self.progress);
+        this.experience?.updateProgress(self.progress);
+      },
+      onToggle: (self) => {
+        if (self.isActive) {
+          this.experience.turnOn();
+        } else {
+          this.experience.turnOff();
+        }
       },
     });
   }

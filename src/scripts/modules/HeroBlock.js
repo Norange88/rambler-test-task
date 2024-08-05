@@ -1,10 +1,11 @@
 export default class HeroBlock {
   constructor() {
     this.illustrationsContainer = document.querySelector('#hero-illustrations');
+    this.figures = this.illustrationsContainer.querySelectorAll('.js-figure');
 
     this.rotateTitle();
-
     this.bindEvents();
+    this.initFiguresFloat();
   }
 
   bindEvents() {
@@ -19,5 +20,13 @@ export default class HeroBlock {
     const angleDeg = (angleRad * (180 / Math.PI)).toFixed(2);
     const title = document.querySelector('#hero-title');
     title.style.setProperty('--diagonal-angle', `-${angleDeg}deg`);
+  }
+
+  initFiguresFloat() {
+    setTimeout(() => {
+      Array.from(this.figures).forEach((figure) => {
+        figure.classList.add('_floating');
+      });
+    }, 2000);
   }
 }

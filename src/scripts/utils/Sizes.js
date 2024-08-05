@@ -22,7 +22,7 @@ export default class Sizes extends EventEmitter {
     this.aspect = this.width / this.height;
     this.pixelRatio = Math.min(window.devicePixelRatio, 2);
 
-    const isVertical = this.aspect < 1.2;
+    const isVertical = this.aspect < 1;
 
     if (
       typeof this.isVertical !== undefined &&

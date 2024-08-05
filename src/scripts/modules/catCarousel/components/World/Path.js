@@ -35,7 +35,6 @@ export default class Path extends EventEmitter {
     this.sizes = this.experience.sizes;
 
     this.isDebug = this.experience.isDebug;
-    this.isDebug = false;
     this.scene = this.experience.scene;
 
     this.createInstance();

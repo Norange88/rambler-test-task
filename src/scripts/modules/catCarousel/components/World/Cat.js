@@ -22,8 +22,6 @@ export default class Cat {
     texture.minFilter = THREE.NearestFilter;
     texture.magFilter = THREE.NearestFilter;
 
-    // const img = texture.source.data;
-    // const ratio = img.width / img.height;
     const width = 10;
     const height = 10;
 

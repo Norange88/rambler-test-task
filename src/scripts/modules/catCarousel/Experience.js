@@ -15,7 +15,7 @@ export default class Experience {
     }
 
     instance = this;
-    this.isDebug = true;
+    this.isDebug = false;
 
     this.canvas = canvas;
     this.wrapper = wrappes;
@@ -25,11 +25,20 @@ export default class Experience {
     this.renderer = new Renderer();
     this.time = new Time();
     this.world = new World();
+    this.isActive = false;
 
     this.scrollProgress = 0;
 
     this.world.init();
     this.bindEvents();
+  }
+
+  turnOn() {
+    this.isActive = true;
+  }
+
+  turnOff() {
+    this.isActive = false;
   }
 
   bindEvents() {
@@ -47,6 +56,7 @@ export default class Experience {
   }
 
   update() {
+    if (!this.isActive) return;
     this.camera.update();
     this.world.update();
     this.renderer.update();

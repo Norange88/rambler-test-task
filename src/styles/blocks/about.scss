@@ -74,6 +74,7 @@
 
   &__text {
     width: 816px;
+    max-width: 100%;
     margin: 0 auto;
     @include section-title;
     color: var(--white);

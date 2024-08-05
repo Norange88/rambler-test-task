@@ -10,8 +10,7 @@ export default class Camera {
     this.canvas = this.experience.canvas;
     this.sizes = this.experience.sizes;
     this.scene = this.experience.scene;
-    this.isDebug = false;
-    // this.isDebug = this.experience.isDebug;
+    this.isDebug = this.experience.isDebug;
 
     this.setInstance();
     this.bindEvents();

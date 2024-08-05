@@ -71,6 +71,11 @@
         left: auto;
         right: 0;
       }
+
+      img {
+        opacity: 0;
+        animation: lightSpeedInLeft 0.7s forwards 0.1s ease-in;
+      }
     }
 
     &._block {
@@ -82,25 +87,31 @@
       @media #{$max-tablet-portrait} {
         left: 10%;
       }
+
+      img {
+        opacity: 0;
+        animation: lightSpeedInRight 0.7s forwards 0.1s ease-in;
+      }
     }
 
     img {
       max-width: 100%;
       max-height: 20svh;
+      transition: transform 0.3s ease-out, opacity ease-out;
     }
   }
 
   &__text {
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    margin: 0 auto;
+    // width: 100%;
     padding-bottom: 40px;
     pointer-events: auto;
+    transform: translateX(-50%);
 
     @media #{$max-desktop-M} {
       padding-bottom: 30px;
@@ -108,7 +119,9 @@
 
     @media #{$max-tablet-portrait} {
       position: relative;
+      left: auto;
       margin-top: 32px;
+      transform: none;
     }
 
     @media #{$max-mobile-L} {
@@ -119,11 +132,13 @@
   }
 
   &__action-text {
+    opacity: 0;
     margin-bottom: 75px;
     text-align: center;
     @include font-secondary;
     font-size: 48px;
     color: #adaeae;
+    animation: opacityPulse 1.4s linear forwards infinite 1.4s;
 
     @media #{$low-screen} {
       margin-bottom: 40px;
@@ -139,6 +154,8 @@
 
     @media #{$max-tablet-portrait} {
       font-size: 32px;
+      opacity: 1;
+      animation: none;
     }
 
     @media #{$max-mobile-M} {
@@ -149,13 +166,15 @@
 
   &__nav {
     width: 91%;
+    opacity: 0;
+    animation: bounceInUp 1s forwards ease-out;
 
-    @media #{$max-tablet-landscape} {
-      width: 80%;
-    }
+    // @media #{$max-tablet-landscape} {
+    //   width: 80%;
+    // }
 
     @media #{$max-tablet-portrait} {
-      width: 90%;
+      width: 100%;
     }
 
     @media #{$max-mobile-L} {
@@ -165,18 +184,25 @@
 
   &__nav-list {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    column-gap: 20%;
     width: 100%;
     font-family: var(--font-secondary);
     font-size: 27px;
     line-height: 1.66;
     color: var(--dark-grey-1);
 
+    @media #{$max-desktop-M} {
+      justify-content: space-around;
+      column-gap: 0;
+    }
+
     @media #{$max-tablet-landscape} {
       font-size: 24px;
     }
 
     @media #{$max-tablet-portrait} {
+      justify-content: space-between;
       font-size: 20px;
     }
 
@@ -202,6 +228,14 @@
       }
     }
 
+    &:active {
+      color: var(--pink);
+
+      &::after {
+        background-color: var(--pink);
+      }
+    }
+
     &::after {
       display: block;
       content: '';
@@ -211,7 +245,7 @@
       width: 100%;
       height: 2px;
       background-color: var(--dark-grey-1);
-      transition: all $transition;
+      transition: transform $transition;
     }
   }
 
@@ -219,6 +253,9 @@
     position: absolute;
     z-index: 5;
     pointer-events: none;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    transition-delay: 0.5s;
+    backface-visibility: hidden;
   }
 
   &__figure-face {
@@ -243,13 +280,6 @@
     }
   }
 
-  &__figure-shadow {
-    position: absolute;
-    width: 100%;
-
-    // display: none;
-  }
-
   &__figure._1 {
     left: 1%;
     bottom: 1%;
@@ -270,6 +300,10 @@
 
     @media #{$horizontal-mobile} {
       bottom: 40%;
+    }
+
+    &._floating {
+      animation: verticalFloat 5s ease-in-out 0s infinite alternate;
     }
 
     .hero__figure-face {
@@ -344,11 +378,15 @@
       bottom: 36%;
     }
 
+    &._floating {
+      animation: verticalFloat2 5s ease-in-out 1s infinite alternate;
+    }
+
     .hero__figure-face {
       transform: rotate(-30deg);
 
       @media #{$max-tablet-portrait} {
-        transform: rotate(192deg);
+        transform: rotate(-170deg);
       }
 
       img {
@@ -405,6 +443,10 @@
       bottom: 3.88%;
     }
 
+    &._floating {
+      animation: verticalFloat 5s ease-in-out 0s infinite alternate;
+    }
+
     .hero__figure-face {
       transform: scaleX(-1) rotate(65deg);
 
@@ -456,6 +498,10 @@
       right: 19%;
     }
 
+    &._floating {
+      animation: verticalFloat2 5s ease-in-out 1.5s infinite alternate;
+    }
+
     .hero__figure-face {
       transform: scaleX(-1) rotate(198deg);
 
@@ -499,6 +545,10 @@
     @media #{$max-tablet-portrait} {
       left: 10%;
       top: 31%;
+    }
+
+    &._floating {
+      animation: verticalFloat 5s ease-in-out 0.5s infinite alternate;
     }
 
     .hero__figure-face {
@@ -550,6 +600,10 @@
       left: 13%;
       top: 45%;
       bottom: auto;
+    }
+
+    &._floating {
+      animation: verticalFloat2 5s ease-in-out 1s infinite alternate;
     }
 
     .hero__figure-face {
@@ -613,6 +667,10 @@
       right: 10%;
     }
 
+    &._floating {
+      animation: verticalFloat 5s ease-in-out 0s infinite alternate;
+    }
+
     .hero__figure-face {
       transform: rotate(59deg);
 
@@ -657,6 +715,7 @@
   &__figure._8 {
     right: -1.5%;
     bottom: 19%;
+    animation-delay: 1s;
 
     @media #{$max-desktop-M} {
       right: -6%;
@@ -672,6 +731,10 @@
     @media #{$horizontal-mobile} {
       left: 25%;
       right: auto;
+    }
+
+    &._floating {
+      animation: verticalFloat2 5s ease-in-out 1s infinite alternate;
     }
 
     .hero__figure-face {
@@ -711,6 +774,59 @@
           background-image: url('../images/tetris/shadows/z-blur-max.png');
         }
       }
+    }
+  }
+}
+
+body.iOS {
+  // Bug fix
+  .hero {
+    &__figure {
+      &._2 {
+        .hero__figure-face {
+          &::before {
+            @media #{$max-tablet-portrait} {
+              top: -110%;
+              left: 52%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body.loading {
+  .hero {
+    &__figure {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+
+    &__title-word {
+      &._bit {
+        img {
+          animation: none;
+          opacity: 0;
+        }
+      }
+
+      &._block {
+        img {
+          animation: none;
+          opacity: 0;
+        }
+      }
+    }
+
+    &__action-text {
+      opacity: 0;
+      animation: none;
+    }
+
+    &__nav {
+      opacity: 0;
+      animation: none;
     }
   }
 }
