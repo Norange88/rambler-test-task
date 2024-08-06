@@ -35,10 +35,7 @@ export default class EmergingText {
 
   createWordHtml(word, addSpace = true) {
     if (!word.trim().length) return '';
-    const spacer =
-      !addSpace || word === ','
-        ? ''
-        : '<span class="emerging-text__whitespace"> </span>';
+    const spacer = !addSpace || word === ',' ? '' : ' ';
     return `${spacer}<span class="emerging-text__word">${word}</span>`;
   }
 
