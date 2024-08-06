@@ -24,7 +24,7 @@ export default class EmergingText {
           result = `${result}${wordHtml}`;
         });
       } else {
-        const elHtml = this.createWordHtml(child.outerHTML, false);
+        const elHtml = this.createWordHtml(child.outerHTML);
         result = `${result}${elHtml}`;
       }
     });
@@ -35,8 +35,11 @@ export default class EmergingText {
 
   createWordHtml(word, addSpace = true) {
     if (!word.trim().length) return '';
-    const spacer = !addSpace ? '' : '&nbsp;';
-    return `<span class="emerging-text__word">${word}${spacer}</span>`;
+    const spacer =
+      !addSpace || word === ','
+        ? ''
+        : '<span class="emerging-text__whitespace"> </span>';
+    return `${spacer}<span class="emerging-text__word">${word}</span>`;
   }
 
   splitStringToWords(string) {

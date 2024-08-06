@@ -3,7 +3,7 @@
   transition: opacity $transition;
 
   &__word {
-    display: inline-block;
+    display: inline;
     opacity: 0;
     transition: opacity 1s ease, transform 1s ease;
     transform: scaleY(0.6);

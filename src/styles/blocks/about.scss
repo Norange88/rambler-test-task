@@ -48,10 +48,6 @@
     padding-bottom: 20svh;
     padding-left: 5vw;
 
-    @media #{$max-tablet-landscape} {
-      padding-left: 15vw;
-    }
-
     @media #{$max-mobile-L} {
       min-height: 0;
       padding-top: 9.6rem;
@@ -71,7 +67,7 @@
     color: var(--white);
 
     @media #{$max-tablet-landscape} {
-      width: 600px;
+      width: 500px;
       font-size: 80px;
     }
 
