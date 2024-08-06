@@ -66,8 +66,8 @@
 
     @media #{$max-mobile-L} {
       min-height: 0;
-      padding-top: 96px;
-      padding-bottom: 96px;
+      padding-top: 9.6rem;
+      padding-bottom: 9.6rem;
       padding-left: 0;
     }
   }
@@ -84,7 +84,7 @@
     }
 
     @media #{$max-mobile-L} {
-      width: 360px;
+      width: 100%;
       max-width: 100%;
     }
 
