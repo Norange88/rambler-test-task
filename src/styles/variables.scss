@@ -20,9 +20,9 @@ $mobile-M: 540px;
 
 $min-desktop-XL: '(min-width: #{$desktop-XL + 1px})';
 $max-desktop-M: '(max-width: #{$desktop-M - 1px})';
+$low-desktop: '(min-width: #{$tablet-landscape}) and (min-aspect-ratio: 2.2)';
 $max-tablet-landscape: '(max-width: #{$tablet-landscape - 1px})';
 $max-tablet-portrait: '(max-width: #{$tablet-portrait - 1px})';
 $max-mobile-L: '(max-width: #{$mobile-L - 1px})';
 $max-mobile-M: '(max-width: #{$mobile-M - 1px})';
-$low-screen: '(min-aspect-ratio: 2.2)';
 $horizontal-mobile: '#{$max-tablet-portrait} and (min-aspect-ratio: 1.9), #{$max-mobile-L} and (orientation: landscape)';

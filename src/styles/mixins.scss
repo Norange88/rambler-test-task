@@ -60,26 +60,6 @@
   letter-spacing: -0.06em;
 }
 
-@mixin section-title {
-  font-family: var(--font-secondary);
-  font-size: 128px;
-  line-height: 0.53;
-  letter-spacing: -0.06em;
-
-  @media #{$max-tablet-landscape} {
-    font-size: 80px;
-  }
-
-  @media #{$max-mobile-L} {
-    // font-size: 64px;
-    font-size: 4.8rem;
-  }
-
-  // @media #{$max-mobile-M} {
-  //   font-size: 48px;
-  // }
-}
-
 @mixin checkers($direction, $size, $color1, $color2) {
   background-image: repeating-linear-gradient(
     $direction,

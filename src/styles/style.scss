@@ -18,8 +18,13 @@ html {
   --font-secondary: TookeelyBrookings;
 
   font-family: --font-primary;
-  font-size: 24px;
+  // font-size: 24px;
+  font-size: 0.52vw;
   line-height: 1.6;
+
+  @media #{$min-desktop-XL} {
+    font-size: 10px;
+  }
 
   @media #{$max-mobile-L} {
     font-size: 3.125vw;

@@ -15,25 +15,28 @@
   &__content {
     display: flex;
     align-items: center;
-    height: 120px;
+    height: 12rem;
+    min-height: 80px;
 
-    @media #{$max-desktop-M} {
-      height: 80px;
+    @media #{$low-desktop} {
+      height: 8rem;
     }
 
     @media #{$horizontal-mobile}, #{$max-mobile-L} {
-      height: 40px;
+      height: 4rem;
+      min-height: 40px;
+      max-height: 60px;
     }
   }
 
   &__burger {
     position: relative;
     z-index: 5;
-    margin-left: -8px;
+    margin-left: -0.8rem;
 
-    @media #{$max-desktop-M} {
-      margin-left: -4px;
-    }
+    // @media #{$max-desktop-M} {
+    //   margin-left: -4px;
+    // }
 
     @media #{$horizontal-mobile}, #{$max-mobile-L} {
       margin-left: -0.6rem;

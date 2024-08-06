@@ -29,7 +29,7 @@
       transform: translateX(-50%) rotate(-45deg);
     }
 
-    @media #{$low-screen} {
+    @media #{$low-desktop} {
       bottom: calc(26% + 250px);
     }
 
@@ -108,18 +108,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 40px;
+    padding-bottom: 4rem;
     pointer-events: auto;
     transform: translateX(-50%);
 
-    @media #{$max-desktop-M} {
-      padding-bottom: 30px;
+    @media #{$max-tablet-landscape} {
+      padding-bottom: 40px;
     }
 
     @media #{$max-tablet-portrait} {
       position: relative;
       left: auto;
-      margin-top: 32px;
+      margin-top: 3.2rem;
       transform: none;
     }
 
@@ -133,23 +133,24 @@
 
   &__action-text {
     opacity: 0;
-    margin-bottom: 75px;
+    margin-bottom: 7.5rem;
     text-align: center;
     @include font-secondary;
-    font-size: 48px;
+    font-size: 4.8rem;
     color: #adaeae;
     animation: opacityPulse 1.4s linear forwards infinite 1.4s;
 
-    @media #{$low-screen} {
-      margin-bottom: 40px;
+    @media #{$low-desktop} {
+      margin-bottom: 4rem;
     }
 
     @media #{$max-desktop-M} {
-      margin-bottom: 40px;
+      font-size: 5.4rem;
     }
 
     @media #{$max-tablet-landscape} {
       font-size: 40px;
+      margin-bottom: 40px;
     }
 
     @media #{$max-tablet-portrait} {
@@ -165,36 +166,32 @@
   }
 
   &__nav {
-    width: 91%;
+    width: 100%;
     opacity: 0;
     animation: bounceInUp 1s forwards ease-out;
-
-    @media #{$max-tablet-portrait} {
-      width: 100%;
-    }
   }
 
   &__nav-list {
     display: flex;
     justify-content: center;
-    column-gap: 20%;
+    column-gap: 31rem;
     width: 100%;
     font-family: var(--font-secondary);
-    font-size: 27px;
+    font-size: 2.7rem;
     line-height: 1.66;
     color: var(--dark-grey-1);
 
     @media #{$max-desktop-M} {
-      justify-content: space-around;
-      column-gap: 0;
+      font-size: 3.4rem;
     }
 
     @media #{$max-tablet-landscape} {
+      justify-content: space-around;
+      column-gap: 0;
       font-size: 24px;
     }
 
     @media #{$max-tablet-portrait} {
-      justify-content: space-between;
       font-size: 20px;
     }
 
@@ -258,8 +255,6 @@
       display: block;
       content: '';
       position: absolute;
-      // top: 0;
-      // left: 0;
       width: 100%;
       height: 100%;
       background-size: contain;
@@ -352,7 +347,7 @@
       left: 5%;
     }
 
-    @media #{$low-screen} {
+    @media #{$low-desktop} {
       left: 5%;
     }
 
@@ -640,7 +635,7 @@
     right: 6%;
     bottom: 24%;
 
-    @media #{$low-screen} {
+    @media #{$low-desktop} {
       right: 12%;
     }
 
@@ -651,7 +646,6 @@
     }
 
     @media #{$max-mobile-L} {
-      // top: 16%;
       top: 92px;
       right: 26%;
     }

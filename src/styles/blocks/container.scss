@@ -1,12 +1,7 @@
 .container-wide {
-  width: calc(100% - 84px);
-  // max-width: calc(1920px - 84px);
+  width: calc(100% - 8.4rem);
   margin-left: auto;
   margin-right: auto;
-
-  @media #{$max-tablet-landscape} {
-    width: calc(100% - 48px);
-  }
 
   @media #{$max-mobile-L}, #{$horizontal-mobile} {
     width: calc(100% - 3.2rem);
@@ -15,7 +10,7 @@
 
 .container {
   width: 1572px;
-  max-width: calc(100% - 128px);
+  max-width: calc(100% - 12.8rem);
   margin-left: auto;
   margin-right: auto;
 
